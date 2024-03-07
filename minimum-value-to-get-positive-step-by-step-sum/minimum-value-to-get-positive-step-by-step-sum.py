@@ -4,6 +4,7 @@ class Solution:
         min_val = curr = 0
         for i in range(len(nums)):
             curr += nums[i]
-            min_val = curr if curr < min_val else min_val
+            if curr < min_val:
+                min_val = curr
 
         return -min_val + 1
