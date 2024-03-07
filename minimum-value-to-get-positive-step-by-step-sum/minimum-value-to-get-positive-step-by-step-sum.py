@@ -4,5 +4,7 @@ class Solution:
         min_val = prefix_sum = 0 
         for num in nums:
             prefix_sum += num
-            min_val = min(min_val,prefix_sum)
-        return abs(min_val) + 1
+            if prefix_sum < min_val:
+                min_val = prefix_sum
+        
+        return -min_val + 1
