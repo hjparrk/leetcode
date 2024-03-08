@@ -6,11 +6,11 @@ class Solution:
         for i in range(1, n):
             prefix.append(nums[i] + prefix[-1])
         
-        answer = [-1] * n
+        ans = [-1] * n
         for i in range(k, n-k):
-            answer[i] = (prefix[i+k] - prefix[i-k] + nums[i-k]) // (2*k+1)
+            ans[i] = (prefix[i+k] - prefix[i-k] + nums[i-k]) // (2*k+1)
         
-        return answer
+        return ans
         
         
         
