@@ -7,8 +7,9 @@ class Solution:
             prefix.append(nums[i] + prefix[-1])
         
         ans = [-1] * n
+        window_size = 2 * k + 1
         for i in range(k, n-k):
-            ans[i] = (prefix[i+k] - prefix[i-k] + nums[i-k]) // (2*k+1)
+            ans[i] = (prefix[i+k] - prefix[i-k] + nums[i-k]) // window_size
         
         return ans
         
