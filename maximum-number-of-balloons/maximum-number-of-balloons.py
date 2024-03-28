@@ -3,15 +3,11 @@ from collections import Counter
 class Solution:
     def maxNumberOfBalloons(self, text: str) -> int:
         
-        ans = 0
-        chars = set("balloon")
-        count = Counter(text)
+        b  = text.count('b')
+        a  = text.count('a')
+        l  = text.count('l')//2
+        o  = text.count('o')//2
+        n  = text.count('n')
         
-        # set 'AND' operation
-        if len(chars & count.keys()) != 5:
-            return ans
-        
-        ans = min(count['b'], count['a'], count['l'] // 2, count['o'] // 2, count['n'])
-        return ans
-        
+        return min(b,a,l,o,n)
         
