@@ -10,6 +10,15 @@ class Solution:
         l = [k for k in count if count[k] == 1]
         return max(l) if len(l) else -1
     
+#         c = collections.Counter(nums)
+
+#         res = - 1
+#         for k in c:
+#             if c[k] == 1:
+#                 res = max(res, k)
+        
+#         return res
+    
 #         s1 = set()
 #         s2 = set()
 
