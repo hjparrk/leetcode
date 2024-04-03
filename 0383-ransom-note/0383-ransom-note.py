@@ -8,7 +8,7 @@ class Solution:
             count[c] += 1
             
         for c in ransomNote:
-            if count[c] > 0:
+            if c in magazine and count[c] > 0:
                 count[c] += -1
             else:
                 return False
