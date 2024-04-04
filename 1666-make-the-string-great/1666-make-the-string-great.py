@@ -10,5 +10,4 @@ class Solution:
                 stack.pop()
             else:
                 stack.append(c)
-
         return "".join(stack)
