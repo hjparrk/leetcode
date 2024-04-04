@@ -14,9 +14,6 @@ class Solution:
             elif c != "#":
                 t_stack.append(c)
 
-        print(s_stack)
-        print(t_stack)
-
         return s_stack == t_stack
 
         
