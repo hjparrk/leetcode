@@ -4,9 +4,7 @@ class Solution:
         for c in s:
             if not stack:
                 stack.append(c)
-            elif c.islower() and stack[-1] == c.upper():
-                stack.pop()
-            elif c.isupper() and stack[-1] == c.lower():
+            elif stack[-1] == c.swapcase():
                 stack.pop()
             else:
                 stack.append(c)
