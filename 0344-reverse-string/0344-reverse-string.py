@@ -3,8 +3,6 @@ class Solution:
         """
         Do not return anything, modify s in-place instead.
         """
-        print(s)
-
         left = 0
         right = len(s) - 1
 
@@ -15,6 +13,4 @@ class Solution:
 
             left += 1
             right -= 1
-
-        print(s)
         
