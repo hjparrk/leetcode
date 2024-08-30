@@ -12,8 +12,8 @@ class Solution:
             if abs(root.val - target) < abs(ans - target):
                 ans = root.val
             
-            elif abs(root.val - target) == abs(res - target):
-                res = min(res, root.val)
+            elif abs(root.val - target) == abs(ans - target):
+                ans = min(ans, root.val)
             
             if root.val > target:
                 root = root.left
