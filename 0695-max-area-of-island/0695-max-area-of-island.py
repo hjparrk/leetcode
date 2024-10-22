@@ -22,11 +22,7 @@ class Solution:
         for row in range(rows):
             for col in range(cols):
                 if (row,col) not in seen and grid[row][col] == 1:
-                    area = dfs(row,col)
-                    if area == 0:
-                        max_area = max(max_area, 1)
-                    else:
-                        max_area = max(max_area, area)
+                    max_area = max(max_area, dfs(row,col))
         return max_area
         
         
