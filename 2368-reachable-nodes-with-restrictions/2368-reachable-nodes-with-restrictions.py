@@ -8,10 +8,8 @@ class Solution:
             graph[x].append(y)
             graph[y].append(x)
         
-        seen = {0}
-        for node in restricted:
-            seen.add(node)
-
+        seen = set(restricted)
+        seen.add(0)
         def dfs(node):
             count = 1
             for neighbor in graph[node]:
