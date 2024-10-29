@@ -10,7 +10,7 @@ class Solution:
                     count += 1
             return count < k + 1
 
-        left, right = min(sweetness), sum(sweetness)
+        left, right = min(sweetness), sum(sweetness) // (k + 1)
         while left <= right:
             mid = (left + right) // 2
             if check(mid):
