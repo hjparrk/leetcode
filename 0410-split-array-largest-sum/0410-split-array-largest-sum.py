@@ -15,14 +15,9 @@ class Solution:
         left, right = max(nums), sum(nums)
         while left <= right:
             mid = (left + right) // 2
-            print(mid)
-            
-            # Find the minimum splits. If splits_required is less than
-            # or equal to k, move towards left i.e., smaller values
             if min_subarrays_required(mid) <= k:
                 right = mid - 1
             else:
-                # Move towards right if splits_required is more than m
                 left = mid + 1
         
         return left
