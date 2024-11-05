@@ -4,8 +4,12 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+
+from collections import deque
+
 class Solution:
     def isBalanced(self, root: Optional[TreeNode]) -> bool:
+
         def dfs(node):
             if not node:
                 return [True, 0]
