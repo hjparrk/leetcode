@@ -17,7 +17,6 @@ class Solution:
         
         seen = {}
         def bfs(root):
-            seen[root] = 0
             queue = deque([(root, 0)]) # node, steps
             while queue:
                 node, steps = queue.popleft()
