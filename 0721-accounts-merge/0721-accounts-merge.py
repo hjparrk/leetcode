@@ -1,5 +1,4 @@
 from collections import defaultdict
-from pprint import pprint
 
 class Solution:
     def accountsMerge(self, accounts: List[List[str]]) -> List[List[str]]:
