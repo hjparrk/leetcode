@@ -5,15 +5,10 @@ class Solution:
         target = total // 2
 
         dp = set([0])
-        for num in nums:
+        for num in nums: # O(n) times
             if num == target: return True
             if num > target: return False
 
-            updated = set(dp)
-            for elem in dp:
-                if elem + num == target: return True
-                updated.add(elem + num)
-            dp = updated
+            dp.update([sum + num for sum in dp]) # O(sum(nums))
+            if target in dp: return True
         return False
-
-
