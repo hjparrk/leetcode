@@ -11,6 +11,7 @@ class Solution:
 
             updated = set(dp)
             for elem in dp:
+                if elem + num == target: return True
                 updated.add(elem + num)
             dp = updated
         return False
