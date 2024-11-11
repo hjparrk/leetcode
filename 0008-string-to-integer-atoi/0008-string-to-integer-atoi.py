@@ -2,29 +2,23 @@ from collections import deque
 
 class Solution:
     def myAtoi(self, s: str) -> int:
-        nums = set([str(num) for num in range(10)])
-        signs = set(["-", "+"])
-        num_found, is_negative = False, False
-        queue = deque()
-        for letter in s.strip():
-            if not num_found and letter == "-":
-                is_negative = True
-            elif not num_found and letter == "+":
+        num = '0123456789'
+        res = ''
+        for x in s:
+            if x == ' ' and len(res) == 0:
                 continue
-            elif letter in nums:
-                num_found = True
-                queue.append(letter)
+            if x != ' ' and (x in '-+' or x in num) and len(res) == 0:
+                res += x
+            elif x in num:
+                res += x
             else:
                 break
-        
-        ans = 0
-        MAX, MIN = 2**31 - 1, -2**31
-        while queue:
-            popped = queue.popleft()
-            ans = (ans * 10) + int(popped)
-        ans = ans if not is_negative else -ans
-        if ans > MAX:
-            ans = MAX
-        if ans < MIN:
-            ans = MIN
-        return ans
+        if res == '' or res in '-+':
+            return 0
+        else:
+            if int(res) < -(2**31):
+                return -(2**31)
+            elif int(res) > (2**31 - 1):
+                return (2**31 - 1)
+            else:
+                return int(res)
