@@ -4,12 +4,15 @@ class Solution:
         if total_sum % 2 != 0:
             return False
         
+        dp = set()
+        dp.add(0)
         target = total_sum // 2
-        dp = [False] * (target + 1)
-        dp[0] = True 
-        
         for num in nums:
-            for i in range(target, num - 1, -1):
-                dp[i] = dp[i] or dp[i - num]
-        
-        return dp[target]
+            next_dp = set()
+            for elem in dp:
+                next_dp.add(elem)
+                next_dp.add(elem + num)
+            dp = next_dp
+        return True if target in dp else False
+
+
