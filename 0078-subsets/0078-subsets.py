@@ -1,6 +1,5 @@
 class Solution:
     def subsets(self, nums: List[int]) -> List[List[int]]:
-        
         def backtrack(curr, i):
             if i > len(nums):
                 return
