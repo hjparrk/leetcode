@@ -5,5 +5,7 @@ class Solution:
         tank = index = 0
         for i in range(len(gas)):     
             tank += gas[i] - cost[i]
-            if tank < 0: tank, index = 0, i + 1
+            if tank < 0:
+                tank, index = 0, i + 1
+                continue
         return index 
