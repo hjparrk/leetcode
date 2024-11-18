@@ -3,13 +3,9 @@ from heapq import heappop, heappush
 
 class Solution:
     def topKFrequent(self, words: List[str], k: int) -> List[str]:
-        frequencies = Counter(words)
-
         heap = []
-        for word, freq in frequencies.items():
+        for word, freq in Counter(words).items():
             heappush(heap, (-freq, word))
 
-        ans = []
-        for _ in range(k):
-            ans.append(heappop(heap)[1])
-        return ans
+        return [heappop(heap)[1] for _ in range(k)]
+        # O((n + k) log n)
