@@ -1,16 +1,12 @@
 class Solution:
     def findMaxLength(self, nums: List[int]) -> int:
-        
-        m = {0:-1}
-        counter = ans = 0
+
+        seen_at = dict()
+        seen_at[0] = -1
+
+        ans = curr = 0
         for i, num in enumerate(nums):
-            counter += (num*2 - 1)
-            if counter in m: 
-                ans = max(ans, i - m[counter])
-            else: 
-                m[counter] = i
+            curr += (num * 2 - 1) # 1 or -1
+            if curr in seen_at: ans = max(ans, i - seen_at[curr])
+            else: seen_at[curr] = i
         return ans
-        
-            
-        
-        
