@@ -13,14 +13,12 @@ class Solution:
                 place *= 10
                 curr = curr.next
             return num
+        num = calc_sum(l1) + calc_sum(l2)
 
-        total = calc_sum(l1) + calc_sum(l2)
-        dummy = ListNode()
+        dummy = ListNode(0)
         prev = dummy
-        while total:
-            digit = total % 10
-            total = total // 10
+        while num:
+            digit, num = num % 10, num // 10
             node = ListNode(digit)
-            prev.next = node
-            prev = prev.next
-        return dummy.next if dummy.next else ListNode(0)
+            prev.next, prev = node, node
+        return dummy.next if dummy.next else dummy
