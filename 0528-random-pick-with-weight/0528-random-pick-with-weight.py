@@ -11,8 +11,8 @@ class Solution:
         self.total = self.prefix_sum[-1]
 
     def pickIndex(self) -> int:
-        random_num = random.randint(1, self.total)
-        index = bisect_left(self.prefix_sum, random_num)
+        target = random.randint(1, self.total)
+        index = bisect_left(self.prefix_sum, target)
         return index
 
 
