@@ -1,14 +1,19 @@
 class Solution:
 
     def __init__(self, w: List[int]):
-        self.cdf = [0]
+        self.prefix_sum = []
+
+        curr = 0
         for weight in w:
-            self.cdf.append(self.cdf[-1] + weight)
+            curr += weight
+            self.prefix_sum.append(curr)
+        
+        self.total = self.prefix_sum[-1]
 
     def pickIndex(self) -> int:
-        rand = random.randint(1, self.cdf[-1])
-        idx = bisect.bisect_left(self.cdf, rand)
-        return idx - 1
+        random_num = random.randint(1, self.total)
+        index = bisect_left(self.prefix_sum, random_num)
+        return index
 
 
 # Your Solution object will be instantiated and called as such:
