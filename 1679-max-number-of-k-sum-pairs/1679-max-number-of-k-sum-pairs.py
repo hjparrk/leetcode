@@ -2,11 +2,11 @@ from collections import defaultdict
 
 class Solution:
     def maxOperations(self, nums: List[int], k: int) -> int:
-        ans, mapping = 0, defaultdict(list)
+        ans, mapping = 0, defaultdict(int)
         for num in nums:
             if mapping[num]:
-                mapping[num].pop()
+                mapping[num] -= 1
                 ans += 1
             else:
-                mapping[k - num].append(num)
+                mapping[k - num] += 1
         return ans
