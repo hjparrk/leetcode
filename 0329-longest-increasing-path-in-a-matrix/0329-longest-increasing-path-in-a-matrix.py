@@ -7,7 +7,7 @@ class Solution:
         dp = [[0 for _ in range(n)] for _ in range(m)]
         directions = [(1, 0), (-1, 0), (0, 1), (0, -1)]
         def dfs(row, col):
-            if dp[row][col] == 0:
+            if not dp[row][col]:
                 max_len = 1
                 for dx, dy in directions:
                     new_row, new_col = row + dy, col + dx
