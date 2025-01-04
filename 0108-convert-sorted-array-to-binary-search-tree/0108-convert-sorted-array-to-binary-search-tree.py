@@ -7,13 +7,13 @@
 class Solution:
     def sortedArrayToBST(self, nums: List[int]) -> Optional[TreeNode]:
         
-        def helper(left, right):
+        def dfs(left, right):
             if left > right: return None
 
             mid = (left + right) // 2
-            root = TreeNode(nums[mid])
-            root.left = helper(left, mid - 1)
-            root.right = helper(mid + 1, right)
-            return root
+            node = TreeNode(nums[mid])
+            node.left, node.right = dfs(left, mid - 1), dfs(mid + 1, right)
+
+            return node
         
-        return helper(0, len(nums) - 1)
+        return dfs(0, len(nums) - 1)
