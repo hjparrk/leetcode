@@ -8,17 +8,12 @@ class Solution:
     def isSubtree(self, root: Optional[TreeNode], subRoot: Optional[TreeNode]) -> bool:
         
         def dfs(x, y):
-            if x and y:
-                if x.val != y.val:
-                    return False
-                else:
-                    return dfs(x.left, y.left) and dfs(x.right, y.right)
-            elif not x and not y:
-                return True
-            else:
-                return False
-        
-        stack, rootNode = [root], None
+            if not x and not y: return True
+            if (x and y) and (x.val == y.val):
+                return dfs(x.left, y.left) and dfs(x.right, y.right)
+            return False
+
+        stack = [root]
         while stack:
             node = stack.pop()
             if node.val == subRoot.val and dfs(node, subRoot):
