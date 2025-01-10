@@ -44,5 +44,4 @@ class Solution:
             curr.next = B
             curr = B
             B = B.next
-        
         curr.next = A
