@@ -1,29 +1,30 @@
+import heapq
 from collections import defaultdict
-from math import inf
-from heapq import heappop, heappush
+from typing import List
 
 class Solution:
     def findCheapestPrice(self, n: int, flights: List[List[int]], src: int, dst: int, k: int) -> int:
-
         graph = defaultdict(list)
-        for x, y, weight in flights:
-            graph[x].append((y, weight))
+        for x, y, price in flights:
+            graph[x].append((y, price))
 
-        seen = {}
-        heap = [(0, 0, src)] # price, stops, node
+        steps = [float('inf')] * n
+        steps[src] = 0
+
+        heap = [(0, src, 0)] # price, node, step
         while heap:
-            price, stops, node = heappop(heap)
-            seen[node] = stops
+            price, node, step = heappop(heap)
 
+            if step > steps[node]:
+                continue
+            if step > k + 1:
+                continue
+            steps[node] = step
+            
             if node == dst:
                 return price
-            
-            if stops > k:
-                continue
-            
+
             for neighbor, neighbor_price in graph[node]:
-                if neighbor in seen and seen[neighbor] <= stops:
-                    continue
-                new_price = price + neighbor_price
-                heappush(heap, (new_price, stops + 1, neighbor))
+                heappush(heap, (price + neighbor_price, neighbor, step + 1))
+        
         return -1
